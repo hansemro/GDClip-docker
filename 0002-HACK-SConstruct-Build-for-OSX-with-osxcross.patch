@@ -1,0 +1,29 @@
+From 58de7f219a97a0091331860731e23e4c58b16943 Mon Sep 17 00:00:00 2001
+From: Hansem Ro <hansemro@outlook.com>
+Date: Fri, 6 May 2022 03:35:54 -0700
+Subject: [PATCH] [HACK] SConstruct: Build for OSX with osxcross
+
+---
+ SConstruct | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/SConstruct b/SConstruct
+index 95815e2..46e91e9 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -194,7 +194,11 @@ if env["platform"] == "linux" or env["platform"] == "freebsd":
+ 
+ elif env["platform"] == "osx":
+     # Use Clang on macOS by default
+-    env["CXX"] = "clang++"
++    env["CC"] = "o64-clang"
++    env["CXX"] = "o64-clang++"
++    env["AR"] = "x86_64-apple-darwin20.4-ar"
++    env["RANLIB"] = "x86_64-apple-darwin20.4-ranlib"
++
+ 
+     if env["bits"] == "32":
+         raise ValueError("Only 64-bit builds are supported for the macOS target.")
+-- 
+2.35.1
+
