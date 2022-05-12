@@ -1,0 +1,28 @@
+From 5edab05471a7ce487d61a272de3e5847d7a792bc Mon Sep 17 00:00:00 2001
+From: Hansem Ro <hansemro@outlook.com>
+Date: Thu, 7 Apr 2022 23:35:33 -0700
+Subject: [PATCH] SConstruct: Treat MSYS2 environment as linux host
+
+This fixes "Could not detect platform automatically" error when running
+`scons platform=windows use_mingw=yes generate_bindings=yes` in MSYS2
+shell with mingw-w64-cross-gcc toolchain.
+---
+ SConstruct | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/SConstruct b/SConstruct
+index 95815e2..92f56c6 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -68,7 +68,7 @@ def add_sources(sources, dir, extension):
+ 
+ # Try to detect the host platform automatically.
+ # This is used if no `platform` argument is passed
+-if sys.platform.startswith("linux"):
++if sys.platform.startswith("linux") or sys.platform == "cygwin":
+     host_platform = "linux"
+ elif sys.platform.startswith("freebsd"):
+     host_platform = "freebsd"
+-- 
+2.35.1
+
