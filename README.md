@@ -2,7 +2,7 @@ Dockerfile for GDClip
 =====================
 
 This repo provides a bare Dockerfile with tool dependencies and some patches
-to build GDClip library on Linux, macOS, and Windows. For now, GDClip is
+to build GDClip library for Linux, macOS, and Windows. For now, GDClip is
 built for x86_64.
 
 ## Building GDClip
