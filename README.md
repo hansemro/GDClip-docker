@@ -5,6 +5,12 @@ This repo provides a bare Dockerfile with tool dependencies and some patches
 to build GDClip library for Linux, macOS, and Windows. For now, GDClip is
 built for x86_64.
 
+## Image
+
+| Registry                                                       | Image                    |
+|----------------------------------------------------------------|--------------------------|
+| [Docker Hub](https://hub.docker.com/r/hansemro/gdclip-docker/) | `hansemro/gdclip-docker` |
+
 ## Building GDClip
 
 ```
